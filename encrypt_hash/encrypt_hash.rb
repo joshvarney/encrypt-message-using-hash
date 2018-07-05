@@ -1,4 +1,6 @@
 def encrypt_hash(message, shift)
+	# require 'date'
+	# shift = Date.today.to_s.split(//).last(2).join("").to_i
 	message_indexes = []
 	encrypted_message = []
 	char1 = ('A'..'z').to_a - ['\\']
@@ -9,7 +11,7 @@ def encrypt_hash(message, shift)
 	# seed = 2
 	# char_hash = char_hash.shuffle(random: Random.new(seed))
 	char_hash = char_hash.map.with_index { |x, i| [i, x]}.to_h
-	message = message.split("")
+	message = message.split(//)
 	message.each { |y| y 
 		if y == " "
 			message_indexes.push(y)
@@ -47,6 +49,8 @@ def encrypt_hash(message, shift)
 	encrypted_message = encrypted_message.join
 end
 def decrypt_hash(message, shift)
+	# require 'date'
+	# shift = Date.today.to_s.split(//).last(2).join("").to_i
 	message_indexes = []
 	decrypted_message = []
 	char1 = ('A'..'z').to_a - ['\\']
@@ -57,7 +61,7 @@ def decrypt_hash(message, shift)
 	# seed = 2
 	# char_hash = char_hash.shuffle(random: Random.new(seed))
 	char_hash = char_hash.map.with_index { |x, i| [i, x]}.to_h
-	message = message.split("")
+	message = message.split(//)
 	message.each { |y| y 
 		if y == " "
 			message_indexes.push(y)
